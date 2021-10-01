@@ -1,31 +1,60 @@
 #include <stdio.h>
 
+
+void swap(int *p,int *q) {
+	  int t;
+	  t=*p;
+     	  *p=*q;
+	  *q=t;
+}
+
+void sort(int r[],int n) {
+	  int i,j,temp;
+		 for(i = 0;i < n-1;i++) {
+		 for(j = 0;j < n-i-1;j++) {			             
+		 if(r[j] > r[j+1])
+			 swap(&r[j],&r[j+1]);
+						        }
+			       }
+}
+int mode(int m[],int f) {
+int maxValue = 0, maxCount = 0, z, y;
+	for (z = 0; z < f; ++z) {
+	 int count = 0;
+			          
+	  for (y = 0; y < f; ++y) {
+		 if (m[y] == m[z])
+	           ++count;
+						         }
+				        
+	 if (count > maxCount) {
+	        maxCount = count;
+	        maxValue = m[z];
+								        }
+					   }
+
+	         return maxValue;
+}
+
+
+
 int main() 
 {
 int a = 3,b = 5,c = 22,d = 7,e = 13;
 float w = (a + b + c + d + e)/5.0; 
-	printf("%f\n",w);
-}
+	printf("Mean = %f\n",w);
 
-void Array_sort(int *array, int n)
-{
-int i=0, j=0, temp=0;
-	for (i=0; i<n; i++)
-	{
-		 for(j=0; j<n-1; j++)
-		 {	
-			if(array[j]>array[j+1])
-			{
-			temp        =array[j];
-			array[j]    =array[j+1];
-			array[j+1]  =temp; }
+	   int r[] = {a,b,c,d,e};
+	   int n = 5;
+	   int sum,i;
+		sort(r,n);
+		 n = (n+1) / 2 - 1;      
+	          printf("Median = %d\n ", r[n]);
+		     return 0;
+	   int f = 5;
+	      int m[] = {a,b,c,d,e};
+  	 printf("Mode = %d\n ", mode(m,f));    
+
+
+		     
 }
-}
-for(i=0; i<n; i++)
-{	printf("\narray_1[%d] : %d",i,array[i]);
-}}
-float Find_median(int array[], int n)
-{
-	float median=0;
-	if (n%2 == 0)
-		median = 
